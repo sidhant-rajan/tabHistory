@@ -39,7 +39,7 @@
 			<div class="row" ng-if="!listUrl.length">
 				<center>No History</center>
 			</div>
-			<div class="row" ng-repeat="url in listUrl">
+			<div class="row" ng-repeat="url in listUrl track by $index">
 				<div class="col s9">
 					{{ url }}
 				</div>

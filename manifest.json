@@ -10,5 +10,9 @@
   },
   "permissions": [
    "activeTab", "storage"
-   ]
+   ],
+  "background": {
+    "page": "popup.html",
+    "persistent": true
+  }
 }
