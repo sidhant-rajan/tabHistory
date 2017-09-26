@@ -1,6 +1,6 @@
 var app = angular.module('tabHistoryApp', []);
 
-app.controller('tabHistoryController', function($scope, localStorageService, $rootScope) {
+app.controller('tabHistoryController', function($scope, $rootScope) {
 	var listUrl;
 	if(window.localStorage.getItem("url")=="null")
 		listUrl = [];
