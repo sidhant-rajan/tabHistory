@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" ng-app="tabHistoryApp">
+	<head>
+		<title>TabHistory Maker</title>
+		<link rel="stylesheet" href="material.min.css">
+		<style>
+			body {
+				width: 600px;
+				height: 600px;
+			}
+			/* fallback */
+			@font-face {
+			  font-family: 'Material Icons';
+			  font-style: normal;
+			  font-weight: 400;
+			  src: url(https://fonts.gstatic.com/s/materialicons/v29/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+			}
+
+			.material-icons {
+			  font-family: 'Material Icons';
+			  font-weight: normal;
+			  font-style: normal;
+			  font-size: 24px;
+			  line-height: 1;
+			  letter-spacing: normal;
+			  text-transform: none;
+			  display: inline-block;
+			  white-space: nowrap;
+			  word-wrap: normal;
+			  direction: ltr;
+			  -webkit-font-feature-settings: 'liga';
+			  -webkit-font-smoothing: antialiased;
+			}
+		</style>
+	</head>
+	<body ng-controller="tabHistoryController">
+		<center><h5>Welcome to TabHistory</h5></center>
+		<div class="container" style="margin-top: 60px;">
+			<div class="row" ng-if="!listUrl.length">
+				<center>No History</center>
+			</div>
+			<div class="row" ng-repeat="url in listUrl">
+				<div class="col s9">
+					{{ url }}
+				</div>
+				<div class="col s2 offset-s1">
+					<a class="btn btn-small red" ng-click="remove(url)">Remove</a>
+				</div>
+			</div>
+		</div>
+		<div class="fixed-action-btn">
+			<a class="btn-floating btn-small waves-effect waves-light blue modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
+		</div>
+		<div id="modal1" class="modal">
+			<div class="modal-content">
+		      <h4>Enter the url</h4>
+		      <div class="row">
+		      	<form class="col s12">
+		      		<div class="row">
+		      			<div class="input-field col s12">
+		      				<input id="url" type="text" class="validate" ng-model="url">
+          					<label for="url">Enter url</label>
+		      			</div>
+		      			<div class="input-field col s12">
+		      				<button class="btn btn-small waves-effect waves-light" type="submit" ng-click="submit()">Submit<i class="material-icons right">done</i></button>
+		      			</div>
+		      		</div>
+		      	</form>
+		      </div>
+		    </div>
+		</div>
+		<div class="container">
+			<center><a class="btn btn-small black" ng-click="open()">Open in tabs</a></center>
+		</div>
+		<script src="jquery.js"></script>
+		<script src="angular.min.js"></script>
+		<script src="material.min.js"></script>
+		<script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+		<script src="load.min.js"></script>
+		<script src="popup.js"></script>
+	</body>
+</html>
