@@ -2,7 +2,7 @@ var app = angular.module('tabHistoryApp', []);
 
 app.controller('tabHistoryController', function($scope, $rootScope) {
 	var listUrl;
-	if(window.localStorage.getItem("url")=="null")
+	if(window.localStorage.getItem("url") == null)
 		listUrl = [];
 	else
 		listUrl = JSON.parse(window.localStorage.getItem("url"));
@@ -18,7 +18,7 @@ app.controller('tabHistoryController', function($scope, $rootScope) {
 	$scope.remove = function(url) {
 		var index = listUrl.indexOf(url);
 		listUrl.splice(index,1);
-		window.localStorage.setItem("url", listUrl);
+		window.localStorage.setItem("url", JSON.stringify(listUrl));
 		$scope.getAllUrls();
 	}
 
